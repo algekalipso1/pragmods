@@ -1015,6 +1015,39 @@ Assignments completed: 200/200 (100%)
          Time elapsed: 26:47:53 (h:mm:ss)
   Average submit time: 97.7 seconds
 
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% Resubmission and Completion of missing experiments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+Jan 10th 2015
+256 subjects | 3FC | NO familiarization | random out of 6 | Linguistic framing: One word vs. the face has glasses| Participants asked to count the two elements
+scale, level 1
+Code: BASERATES
+forced_choice_no_fam_6random_count_least_favorite_10jan2015_BASERATES.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 1; // They count all of the props
+var linguistic_framing = 1; // 1 or 13
+var question_type = 0;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 8;
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

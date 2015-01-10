@@ -31,8 +31,11 @@ var participant_feature_count = 1;
 //      9 -> (Odd one out) Non-linguistic: Bob points to a patch of cloth the same color as the hats. (odd one out is either 9 or 10)
 //      10 -> (Odd one out) Linguistic: Bob says "hat" (odd one out is either 9 or 10)
 //      11 -> tricky guy
-//      12 -> Pure randomness condition: You ask a concrete randomness question so that Liker, betting and forced choice can be mapped onto actual estimated probabilities   
-var linguistic_framing = 8;
+//      12 -> Pure randomness condition: You ask a concrete randomness question so that Liker, betting and forced choice can be mapped onto actual estimated probabilities  
+//      13 -> "My friend has a hat" this is to establish baserates
+//      14 -> "The face has a hat" this is to remove the connotation that "friend" has
+var to_choose_from = [1, 13];
+var linguistic_framing = choose_from(to_choose_from);
 //var linguistic_framing = random(9, 10);
 
 
@@ -65,12 +68,12 @@ var familiarization_status = 0;
 //    3 -> "snowman"
 //    4 -> "sundae"
 //    5 -> "Christmas tree"
-//var stim_index = random(0,5);
-var stim_index = 1;
+var stim_index = random(0,5);
+//var stim_index = 1;
 
 // The Scale and Levels.
 //    0 -> scales [[0, 0, 0], [0, 0, 1], [0, 1, 1]], level 0
-//    1 -> scales [[0, 0, 0], [0, 0, 1], [0, 1, 1]], level 1
+//    1 -> scales [[0, 0, 0], [0, 0, 1], [0, 1, 1]], level 1 // This one is the classic
 //    2 -> scales+ [[0, 0, 1], [0, 1, 1], [1, 1, 0]], level 0
 //    3 -> scales+ [[0, 0, 1], [0, 1, 1], [1, 1, 0]], level 1
 //    4 -> scales+ [[0, 0, 1], [0, 1, 1], [1, 1, 0]], level 2

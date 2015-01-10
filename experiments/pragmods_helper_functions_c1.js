@@ -12,6 +12,13 @@ function random(a,b) {
     }
 }
 
+
+function choose_from(arrayName) {
+    var randomIndex = Math.floor(Math.random() * arrayName.length);
+    var randomElement = arrayName[randomIndex];
+    return randomElement
+}
+
 // range function
 function range(a,b) {
     var rangeArray = new Array();
