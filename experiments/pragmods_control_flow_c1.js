@@ -31,6 +31,46 @@ number_to_name[0] = 'A';
 number_to_name[1] = 'B';
 number_to_name[2] = 'C';
 
+var number_to_position = new Array();
+number_to_position[0] = 'left';
+number_to_position[1] = 'middle';
+number_to_position[2] = 'right';
+
+
+
+// left items
+var lit = "";
+for (i=0;i<3;i++) {
+	if (expt_perm[0][i] == 1) {
+		lit += props[i] + ",";
+	}
+}
+// middle items
+var mit = "";
+for (i=0;i<3;i++) {
+	if (expt_perm[1][i] == 1) {
+		mit += props[i] + ",";
+	}
+}
+
+// right items
+var rit = "";
+for (i=0;i<3;i++) {
+	if (expt_perm[2][i] == 1) {
+		rit += props[i] + ",";
+	}
+}
+
+items_matrix_str = [lit, mit, rit];
+
+
+// Here you create an ordered list of filenames for the purpose of enabling
+// the grayscale_referent parameter to work. 
+
+
+
+
+
 showSlide("instructions");
 
 // The main experiment:
@@ -50,6 +90,21 @@ var experiment = {
 
 	target_position: positions[target],    // -2
 	//logical_position: positions[distractor],
+
+	// describe the items in the left, middle and right referent
+
+	left_items: lit,
+	middle_items: mit,
+	right_items: rit,
+
+
+	// Describe the position of the referent selected
+
+	position_chosen: "",
+
+	// Describe the items in the referent chosen
+
+	items_chosen: "",
 
 	target_frequency: target_frequencies[fam_cond],
 	familiarization_cond: fam_cond, // This is the index number of the familiarization conditions. For example, fam_cond == 0 means that the distractors, targets etc. are: [0, 1, 2, 2, 2, 2, 2, 2, 2]
@@ -106,6 +161,9 @@ var experiment = {
 
 	// image file used
 	image_version: file_number_to_use_for_referents,
+
+	// Colore salience condition
+	color_salience: grayscale_referent,
 
 	// When target_filler_sequence is not 0
 
@@ -368,41 +426,51 @@ var experiment = {
 		    }
 		} else if (question_type == 2) { // PURE BASE RATE CONDITION
 			label_html += 'Which ' + base + ' is Bob\'s favorite?</p>';
+		} else if (question_type == 3) { // "Bob can only use one word to tell you what boat he will sail next and he says: "mumblemumble"
+			label_html += 'Bob can only say one word to communicate with you which ' + base + ' he will ' + actions[0] + ' next, and he says: <b>mumblemumble.</b></p>' + '<p class="block-text style="font-size:small;">' + '(You couldn\'t hear what he said.)</p>';
+		} else if (question_type == 4) { // "Which boat will Bob sail next?"
+			label_html += 'Which ' + base + ' will Bob ' + actions[0] + ' next?</p>';
 		}
+
+
+		// To implement: "Bob can only use one word to tell you what boat he will sail next and he says: "mumblemumble" (you couldn't hear what he said)"
+		// vs. "Which boat will Bob sail next?"
 
 		// Explain what the user is supposed to do for the pragmatic inference
 
-		if ( linguistic_framing == 7) {
-			if (participant_response_type == 0) {
-				label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think is Bob\'s favorite.</p>';
-			} else if (participant_response_type == 1) {
-				label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think may be Bob\'s favorite. Distribute your $100 among the options by how likely you think that each of the options is Bob\'s favorite. (Make sure your bets add to $100).</p>';
-			} else if (participant_response_type == 2) {
-				label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that it is Bob\'s favorite. Here 1 means "very confident that it is not his favorite", 7 means "very confident that it is his favorite" and 4 means that you are not sure one way or the other.</p>';
-			}
-		} else if (linguistic_framing == 0 || linguistic_framing == 2 || linguistic_framing == 1 || linguistic_framing == 3 || linguistic_framing == 4 || linguistic_framing == 5 || linguistic_framing == 6 || linguistic_framing == 13) {
-			if (participant_response_type == 0) {
-				label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think Bob is talking about.</p>';
-			} else if (participant_response_type == 1) {
-				label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think Bob is talking about. Distribute your $100 among the options by how likely you think that Bob is referring to each of the options. (Make sure your bets add to $100).</p>';
-			} else if (participant_response_type == 2) {
-				label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that Bob is referring to it. Here 1 means "very confident that Bob is NOT referring to it", 7 means "very confident that Bob is referring to it" and 4 means that you are not sure one way or the other.</p>';
-			}
-		} else if (linguistic_framing == 8) {
-			if (participant_response_type == 0) {
-				label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think is Bob\'s least favorite.</p>';
-			} else if (participant_response_type == 1) {
-				label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think may be Bob\'s least favorite. Distribute your $100 among the options by how likely you think that each of the options is Bob\'s least favorite. (Make sure your bets add to $100).</p>';
-			} else if (participant_response_type == 2) {
-				label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that it is Bob\'s least favorite. Here 1 means "very confident that it is not his least favorite", 7 means "very confident that it is his least favorite" and 4 means that you are not sure one way or the other.</p>';
-			}
-		} else if (linguistic_framing == 9  || linguistic_framing == 10) {
-			if (participant_response_type == 0) {
-				label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think Bob is refering to.</p>';
-			} else if (participant_response_type == 1) {
-				label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think Bob may refering to. Distribute your $100 among the options by how likely you think that Bob is refering to each of the options. (Make sure your bets add to $100).</p>';
-			} else if (participant_response_type == 2) {
-				label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that Bob is refering to it. Here 1 means "very confident that he is not refering to this ' + base + '", 7 means "very confident that he is refering to this ' + base + '" and 4 means that you are not sure one way or the other.</p>';
+		if (question_type == 0 || question_type == 1 || question_type == 3) {
+			if ( linguistic_framing == 7) {
+				if (participant_response_type == 0) {
+					label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think is Bob\'s favorite.</p>';
+				} else if (participant_response_type == 1) {
+					label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think may be Bob\'s favorite. Distribute your $100 among the options by how likely you think that each of the options is Bob\'s favorite. (Make sure your bets add to $100).</p>';
+				} else if (participant_response_type == 2) {
+					label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that it is Bob\'s favorite. Here 1 means "very confident that it is not his favorite", 7 means "very confident that it is his favorite" and 4 means that you are not sure one way or the other.</p>';
+				}
+			} else if (linguistic_framing == 0 || linguistic_framing == 2 || linguistic_framing == 1 || linguistic_framing == 3 || linguistic_framing == 4 || linguistic_framing == 5 || linguistic_framing == 6 || linguistic_framing == 13) {
+				if (participant_response_type == 0) {
+					label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think Bob is talking about.</p>';
+				} else if (participant_response_type == 1) {
+					label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think Bob is talking about. Distribute your $100 among the options by how likely you think that Bob is referring to each of the options. (Make sure your bets add to $100).</p>';
+				} else if (participant_response_type == 2) {
+					label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that Bob is referring to it. Here 1 means "very confident that Bob is NOT referring to it", 7 means "very confident that Bob is referring to it" and 4 means that you are not sure one way or the other.</p>';
+				}
+			} else if (linguistic_framing == 8) {
+				if (participant_response_type == 0) {
+					label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think is Bob\'s least favorite.</p>';
+				} else if (participant_response_type == 1) {
+					label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think may be Bob\'s least favorite. Distribute your $100 among the options by how likely you think that each of the options is Bob\'s least favorite. (Make sure your bets add to $100).</p>';
+				} else if (participant_response_type == 2) {
+					label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that it is Bob\'s least favorite. Here 1 means "very confident that it is not his least favorite", 7 means "very confident that it is his least favorite" and 4 means that you are not sure one way or the other.</p>';
+				}
+			} else if (linguistic_framing == 9  || linguistic_framing == 10) {
+				if (participant_response_type == 0) {
+					label_html += '<p class="block-text">Click below on the option that represents the ' + base + ' that you think Bob is refering to.</p>';
+				} else if (participant_response_type == 1) {
+					label_html += '<p class="block-text">You have $100 you can use to bet on the ' + base + ' you think Bob may refering to. Distribute your $100 among the options by how likely you think that Bob is refering to each of the options. (Make sure your bets add to $100).</p>';
+				} else if (participant_response_type == 2) {
+					label_html += '<p class="block-text">On a scale from 1 to 7, for each ' + base + ' choose the level of confidence that you have that Bob is refering to it. Here 1 means "very confident that he is not refering to this ' + base + '", 7 means "very confident that he is refering to this ' + base + '" and 4 means that you are not sure one way or the other.</p>';
+				}
 			}
 		}
 
@@ -472,6 +540,9 @@ var experiment = {
 		//} else {
 		experiment.choice = choice_names[c];
 		//}
+
+		experiment.position_chosen = number_to_position[c];
+		experiment.items_chosen = items_matrix_str[c];
 
 		// unchoose everything
 		for (var i=0; i<choices.length; i++) {

@@ -23,6 +23,9 @@ python submiterator.py settings_c1.txt
 	### Updating All ### (or just part, if you want)
 scp -r * SUNERID@cardinal.stanford.edu:/afs/ir/group/langcog/WWW/expts/pragmods
 scp * SUNETID@cardinal.stanford.edu:/afs/ir/group/langcog/WWW/expts/pragmods
+scp * nc07agom@cardinal.stanford.edu:/afs/ir/group/langcog/WWW/expts/pragmods
+
+
 
 	## If you only changed that one file, then:
 scp pragmods_parameter_setter_c1.js SUNETID@cardinal.stanford.edu:/afs/ir/group/langcog/WWW/expts/pragmods

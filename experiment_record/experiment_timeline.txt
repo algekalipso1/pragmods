@@ -1,3 +1,5 @@
+i
+
 
 [4 Familiarization conditions and no familiarizaation and all three participant response type - more exploratory]
 
@@ -1026,20 +1028,159 @@ Assignments completed: 200/200 (100%)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-Jan 10th 2015
-256 subjects | 3FC | NO familiarization | random out of 6 | Linguistic framing: One word vs. the face has glasses| Participants asked to count the two elements
+Jan 14th 2015
+100 subjects | 3FC | NO familiarization | random out of 6 | Linguistic framing: One word vs. the face has glasses| Participants asked to count the two elements
 scale, level 1
 Code: BASERATES
-forced_choice_no_fam_6random_count_least_favorite_10jan2015_BASERATES.csv
+forced_choice_no_fam_6random_count_baseratesmy_14jan2015_BASERATES.csv
 
 var participant_response_type = 0;
-var participant_feature_count = 1; // They count all of the props
-var linguistic_framing = 1; // 1 or 13
+var participant_feature_count = 1; 
+var linguistic_framing = 1 or 13; // 1 or 13
 var question_type = 0;
 var target_filler_sequence = 0;
 var familiarization_status = 0;
 var stim_index = random(0,5);
-var scale_and_level = 8;
+var scale_and_level = 1;
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+Assignments completed: 100/100 (100%)
+         Time elapsed: 1:51:59 (h:mm:ss)
+  Average submit time: 87.1 seconds
+
+
+
+Jan 21st 2015
+200 subjects | 3FC | NO familiarization | random out of 6 | Question type: Baserates one word mumble mumble vs "Which boat will Bob sail next?"| Participants asked to count the two elements
+scale, level 1
+Code: WORDMUMBLE
+forced_choice_no_fam_6random_count_onewordmumble_21jan2015_WORDMUMBLE.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 1; 
+var linguistic_framing = 1;
+var question_type = random(3, 4);;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 1;
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+Assignments completed: 200/200 (100%)
+         Time elapsed: 19:41:46 (h:mm:ss)
+  Average submit time: 74.0 seconds
+
+
+
+Jan 22nd 2015
+200 subjects | 3FC | NO familiarization | random out of 6 | Question type: Baserates one word mumble mumble vs "Which boat will Bob sail next?"| Participants asked to count the two elements
+scale+, level 1
+Code: SCALESBASE
+forced_choice_no_fam_6random_count_onewordmumble_22jan2015_SCALESBASE.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 1; 
+var linguistic_framing = 1;
+var question_type = random(3, 4);;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 4; // Chosen to emulate the same nomenclature as the previous experiment.
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+Assignments completed: 200/200 (100%)
+         Time elapsed: 1:48:57 (h:mm:ss)
+  Average submit time: 80.5 seconds
+
+
+
+
+###### Here I added extra variables to be sent to Turk - namely left_items, middle_items, right_items, position_chosen, items_chosen
+
+
+Feb 11th 2015
+100 subjects | 3FC | NO familiarization | random out of 6 | Question type: Baserates one word mumble mumble | Participants asked to count the two elements
+Twins priors
+Code: TWINBASE
+forced_choice_no_fam_6random_count_onewordmumble_11feb2015_TWINBASE.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 1; 
+var linguistic_framing = 1;
+var question_type = random(3, 4);;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 5; // Scales weird. I.e. the twins case.
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+https://www.mturk.com/mturk/preview?groupId=2J9TP9RA7S5W5UC9UXFFD0JMH00XSU
+Assignments completed: 100/100 (100%)
+         Time elapsed: 0:56:06 (h:mm:ss)
+  Average submit time: 94.4 seconds
+
+
+
+
+
+Feb 11th 2015
+100 subjects | 3FC | NO familiarization | random out of 6 | Question type: Baserates one word mumble mumble | Participants asked to count three elements
+Odd one out priors
+Code: ODDBASE
+forced_choice_no_fam_6random_3count_onewordmumble_11feb2015_ODDBASE.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 2; // They count all of the props
+var linguistic_framing = 1;
+var question_type = random(3, 4);;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 8; // Scales weird. I.e. the twins case.
+var img_size = 200; // needs to be implemented, currently just a placeholder   
+var cond = random(1,4);
+var file_number_to_use_for_referents = '3'
+
+
+Assignments completed: 100/100 (100%)
+         Time elapsed: 0:43:08 (h:mm:ss)
+  Average submit time: 95.3 seconds
+
+
+
+
+# Salience 
+# Remove the color of two of the referents, and see how the colored referent affects the inference
+##### Before doing this, you produced a file called: images_greyscale that contains grayscale versions
+##### of all of the images in the images3 folder.
+
+Feb 18th 2015
+100 subjects | 3FC | NO familiarization | random out of 6 | Question type: He can say one word to communicate with you which boat he will sail next | Participants asked to count two referents
+Salience, color difference.
+
+Code: COLORSALIENCE
+forced_choice_no_fam_6random_2count_oneword_18feb2015_COLORSALIENCE.csv
+
+var participant_response_type = 0;
+var participant_feature_count = 1; // They count all of the props
+var linguistic_framing = 1;
+var question_type = 0;
+var target_filler_sequence = 0;
+var familiarization_status = 0;
+var stim_index = random(0,5);
+var scale_and_level = 1; // Stanfard scale, level 1 - The Classic :)
 var img_size = 200; // needs to be implemented, currently just a placeholder   
 var cond = random(1,4);
 var file_number_to_use_for_referents = '3'

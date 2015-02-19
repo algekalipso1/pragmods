@@ -61,7 +61,7 @@ experimentURL::https://langcog.stanford.edu/expts/pragmods/pragmods_c1.html
 &&&		experimentURL::http://langcog.stanford.edu/expts/MCF/pragmods_js/pragmods_v7.html
 &&& 	The URL where you've posted your external HIT
 
-hitfolderpath::/Users/andesgomez/Documents/Stanford/Autumn2013-Masters/PayedWork/pragmods/cleanPragmods
+hitfolderpath::/Users/andesgomez/Documents/Stanford/Autumn2013-Masters/PayedWork/pragmods/cleanPragmods/experiments
 &&& 	The full path to the folder that you want to contain the scripts for this experiment. 
 &&&	Run the "[nameofexperimentfiles]-postHITs.sh" script from WITHIN THIS FOLDER or you'll have trouble!
 

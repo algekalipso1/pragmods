@@ -34,15 +34,18 @@ var participant_feature_count = 1;
 //      12 -> Pure randomness condition: You ask a concrete randomness question so that Liker, betting and forced choice can be mapped onto actual estimated probabilities  
 //      13 -> "My friend has a hat" this is to establish baserates
 //      14 -> "The face has a hat" this is to remove the connotation that "friend" has
-var to_choose_from = [1, 13];
-var linguistic_framing = choose_from(to_choose_from);
+//var to_choose_from = [1, 13];
+//var linguistic_framing = choose_from(to_choose_from);
 //var linguistic_framing = random(9, 10);
-
+var linguistic_framing = 1;
 
 // Question Type (This will be a controlled experiment with an equal proportion for each base rate).
 //      0 -> Listener inference judgement
 //      1 -> Couldn't hear: “He said ‘My friend has mumblemumble.’ (you didn’t hear what he said)”
 //      2 -> Pure base rate: "Which one is his friend?" or "Which friend is Bob's favorite?"
+//      3 -> "Bob can only use one word to tell you what boat he will sail next and he says: "mumblemumble" (you couldn't hear what he said)" # To Implement
+//      4 -> "Which boat will Bob sail next?"
+//var question_type = 0;
 var question_type = 0;
 
 // Question sequence 
@@ -81,8 +84,9 @@ var stim_index = random(0,5);
 //    6 -> scaleweird [[0, 1, 1], [1, 0, 1], [1, 0, 1]], level 1
 //    7 -> scaleweird [[0, 1, 1], [1, 0, 1], [1, 0, 1]], level 2
 //    8 -> odd one out [[0, 1, 1], [1, 0 , 1], [1, 1, 0]]
+//var to_choose_from = [8];
+//var scale_and_level = choose_from(to_choose_from);
 var scale_and_level = 1;
-//var scale_and_level = 1;
 
 // Elaborate on the purpose of this. Which image is being changed
 var img_size = 200; // needs to be implemented, currently just a placeholder   
@@ -96,7 +100,15 @@ var cond = random(1,4);
 var file_number_to_use_for_referents = '3';
 
 
-// Select color
+// Select color salience. 
+// For reference, in the scales level 1 condition, choice_names_unpermuted[0] is foil, [1] is logical, [2] is target.
+//      0 -> Standard: All of the elements are in color
+//      1 -> choice_names_unpermuted[1] and [2] are greyscale. [0] is colored.
+//      2 -> choice_names_unpermuted[2] and [0] are greyscale, [1] is colored. 
+//      3 -> choice_names_unpermuted[0] and [1] are grayscale, [2] is colored.
+var grayscale_referent = 0;
+
+
 
 // question_order_permutations
 var permutation_of_questions =  shuffle(range(0,2));
